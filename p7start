@@ -1,0 +1,16 @@
+#!/bin/bash
+
+#OpenMP
+g++ openMP_run.cpp -o openMP_run -lm -fopenmp
+#./openMP_run
+
+#SIMD - won't work on rabbit
+
+g++ -c simd.p5.cpp -o simd.p5.o
+g++ simd_run.cpp simd.p5.o  -o simd_run -lm -fopenmp
+# ./simd_run
+
+#OpenCL - must run on rabbit
+g++ openCL_run.cpp -o openCL_run /scratch/cuda-7.0/lib64/libOpenCL.so -w -lm -fopenmp
+# ./openCL_run
+
